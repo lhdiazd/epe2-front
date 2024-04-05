@@ -1,0 +1,12 @@
+main {
+    height: 100vh;
+    background-image: url("../../assets/img/main.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+   
+}
+
+#description{
+    height: 100%;
+}
+
