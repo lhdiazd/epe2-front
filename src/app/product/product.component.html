@@ -1,0 +1,29 @@
+<main>
+
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+              <div class="col-md-4" *ngFor="let product of products">
+                <div class="card mb-4">
+                  <div class="d-flex justify-content-center"><img [src]="'../../assets/img/' + product.id + '.jpg'" class="card-img-top" alt="{{ product.name }}"></div>
+                  <div class="card-body">
+                    <h5 class="card-title">{{ product.name | uppercase }}</h5>                    
+                    <p class="card-text">Precio: ${{ product.price | number: '1.2-2'  }}</p> 
+                    <button class="btn btn-warning w-100 fw-bold" (click)="addToCart(product)">Agregar al carro de compra</button>                   
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="showMessage" id="alertAddProduct" class="alert alert-success mt-3 w-25 fade-in-out text-success fw-bold" role="alert">
+            ¡Producto agregado al carrito.!
+          </div>
+
+
+
+    </section>
+    
+
+
+
+</main>

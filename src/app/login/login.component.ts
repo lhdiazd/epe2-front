@@ -15,19 +15,23 @@ import { Subscription } from 'rxjs';
 })
 export class LoginComponent {
   username: string = '';
-  password: string = '';
-  loggedInSubscription: Subscription | undefined;
+  password: string = '';  
 
   constructor(private loginService: LoginService, private router: Router) { }
 
   login() {
     this.loginService.login(this.username, this.password).subscribe(
-      () => {
-        console.log("Inicio de sesión exitoso");
-        // Esperar a que se complete la actualización de loggedIn
-        this.loginService.setLoggedIn(true)
-        this.router.navigate(["/home"]);
-
+      (authenticatedUser: any) => {
+        console.log("Inicio de sesión exitoso" + authenticatedUser.id);
+        
+        this.loginService.saveUserInfo(authenticatedUser.id, authenticatedUser.username);
+        
+        this.loginService.setLoggedIn(true);
+        
+        if(this.loginService.isLoggedIn()){
+          this.router.navigate(["/home"]);
+        }
+        
       },
       (error) => {
         console.error('Error en el inicio de sesión', error);

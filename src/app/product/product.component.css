@@ -1,0 +1,38 @@
+main {
+    height: 100vh;
+    background: rgb(2, 0, 36);
+    background: linear-gradient(0deg, rgba(2, 0, 36, 1) 0%, rgba(10, 8, 110, 1) 28%, rgba(0, 212, 255, 1) 100%);
+}
+
+.card img{
+    width: 15rem;
+    height: 15rem;
+    max-width: 15rem;
+    max-height: 15rem;
+}
+
+#alertAddProduct{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+
+.fade-in-out {
+    animation: fadeInOut 3s ease;
+  }
+  
+  @keyframes fadeInOut {
+    0% {
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 1;
+    }
+  }

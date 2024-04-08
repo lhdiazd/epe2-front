@@ -1,16 +1,18 @@
 <main>
     <div class="container ">
-        <div class="d-flex justify-content-center mt-5">
+        <h2 class="text-center mt-3">Login</h2>
+        <div class="d-flex justify-content-center mt-3">
+            
             <form class="border rounded p-4">
                 <div class="mb-3">
-                    <label for="inputUser" class="form-label">Usuario</label>
+                    <label for="inputUser" class="form-label fw-bold fs-5">Usuario</label>
                     <input type="text" [(ngModel)]="username" name="username" class="form-control" id="inputUser" aria-describedby="userHelp">                    
                 </div>
                 <div class="mb-3">
-                    <label for="exampleInputPassword" class="form-label">Contraseña</label>
+                    <label for="exampleInputPassword" class="form-label fw-bold fs-5">Contraseña</label>
                     <input type="password" [(ngModel)]="password" name="password" class="form-control" id="exampleInputPassword">
                 </div>              
-                <button type="button" (click)="login()"  class="btn btn-primary w-100">Submit</button>
+                <button type="button" (click)="login()"  class="btn btn-primary w-100">Ingresar</button>
             </form>
         </div>
     </div>

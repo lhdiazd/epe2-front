@@ -1,0 +1,39 @@
+<main>
+    <section>
+        <div class="container my-5">
+            <div class="row">
+              <div class="col">
+                <h2>Historial de compras</h2>
+                
+                <div *ngFor="let purchase of purchases" class="mb-5">
+                  <h3>Compra ID: {{ purchase.id }}</h3>
+                  <table class="table" style="max-width: 50rem;">
+                    <thead>
+                      <tr>
+                        <th>Product</th>
+                        <th>Price</th>
+                        <!-- Agrega más encabezados según tus necesidades -->
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <!-- Itera sobre los productos de cada compra -->
+                      <tr *ngFor="let item of purchase.items">
+                        <td>{{ item.product?.name }}</td>
+                        <td>{{ item.product?.price }}</td>
+                        <!-- Agrega más celdas según tus necesidades -->
+                      </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                          <td class="fw-bold">Total:</td>
+                          <td class="fw-bold">{{ calculateTotal(purchase) }}</td>
+                          <!-- Colspan debe ser igual al número de columnas en la tabla -->
+                        </tr>
+                      </tfoot>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+    </section>
+</main>

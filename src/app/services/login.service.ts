@@ -10,9 +10,24 @@ export class LoginService {
   private baseUrl = 'http://localhost:8080';
 
   private loggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  private userId: BehaviorSubject<number | null> = new BehaviorSubject<number | null>(null);
+  private username: BehaviorSubject<string | null> = new BehaviorSubject<string | null>(null);
 
   constructor(private http: HttpClient) {
+    this.clearAuthInfo();
     this.checkLoggedInState();
+  }
+
+
+  private clearAuthInfo() {
+    if (typeof localStorage !== 'undefined') {
+      localStorage.removeItem('loggedIn');
+      localStorage.removeItem('userId');
+      localStorage.removeItem('username');
+    }
+    this.loggedIn.next(false);
+    this.userId.next(null);
+    this.username.next(null);
   }
 
   private checkLoggedInState() {
@@ -39,4 +54,20 @@ export class LoginService {
     this.checkLoggedInState();
     return this.loggedIn.asObservable();
   }
+
+  getUserId(): Observable<number | null> {
+    return this.userId.asObservable();
+  }
+
+  getUsername(): Observable<string | null> {
+    return this.username.asObservable();
+  }
+
+  saveUserInfo(userId: number, username: string): void {
+    this.userId.next(userId);
+    this.username.next(username);
+    localStorage.setItem('userId', userId.toString());
+    localStorage.setItem('username', username);
+  }
+
 }
