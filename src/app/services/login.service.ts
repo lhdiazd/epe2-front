@@ -21,13 +21,13 @@ export class LoginService {
 
   private clearAuthInfo() {
     if (typeof localStorage !== 'undefined') {
-      localStorage.removeItem('loggedIn');
-      localStorage.removeItem('userId');
-      localStorage.removeItem('username');
-    }
-    this.loggedIn.next(false);
-    this.userId.next(null);
-    this.username.next(null);
+    localStorage.removeItem('loggedIn');
+    localStorage.removeItem('userId');
+    localStorage.removeItem('username');
+  }
+  this.loggedIn.next(false);
+  this.userId.next(null);
+  this.username.next(null);
   }
 
   private checkLoggedInState() {

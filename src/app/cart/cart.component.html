@@ -33,7 +33,7 @@
                 <button class="btn btn-success m-2" (click)="confirmPurchase()">Confirmar compra</button>
             </div>
             <div *ngIf="cartItems.length === 0">
-                <p class="text-center fw-bold fs-3 py-5">El carrito está vacío.<i class="bi bi-cart-x text-white fs-3"></i></p>
+                <p class="text-center fw-bold fs-3 py-5">El carrito está vacío.<i class="bi bi-cart-x text-danger fs-3"></i></p>
             </div>
         </div>
         <div *ngIf="showPurchaseMessage" id="alertPurchase" class="alert alert-success mt-3 w-50 fade-in-out fw-bold" role="alert">
